@@ -19,7 +19,7 @@ public class App {
         int num = ingresoNumero(entrada);
         pila = descomponerNumeroEnPila(entrada, num, pila);
 
-        
+        System.out.println(pila);
     }
 
     public static int ingresoNumero(Scanner entrada){
