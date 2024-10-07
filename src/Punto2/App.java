@@ -9,9 +9,31 @@ componer el número entero 2345. Además, mostrar los dígitos pares e impares d
  */
 
 package Punto2;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args){
+        Scanner entrada = new Scanner(System.in);
+        int num = ingresoNumero(entrada);
+        descomponerNumero(entrada, num);
+    }
+
+    public static int ingresoNumero(Scanner entrada){
+        int num = Helper.getInteger("Ingrese el numero de 4 cifras: ", "Ingrese un valor numerico valido");
+        if(num<999 | num>9999){
+            System.out.println("Ingrese un numero de 4 cifras");
+            return ingresoNumero(entrada);
+        }
+        return num;
+    }
+
+    public static void descomponerNumero(Scanner entrada, int num){
+        int miles = num/1000;
+        int centena = (num/100) % 10;
+        int decena = (num/10) % 10;
+        int unidad = (num) % 10;
         
+
+
     }
 }
