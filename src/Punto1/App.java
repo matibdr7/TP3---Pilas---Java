@@ -28,10 +28,8 @@ public class App {
         System.out.println(pilaAleatoria);
         Stack<String> pilaAuxiliar = new Stack<>();
 
-        /*solicitar al usuario que ingrese N palabras, las cuales deberán ser eliminadas de la pila cuando existan en ella y conservar las demás sin perder el orden inicial. */
-
-        pilaAleatoria = eliminarPalabras(entrada, pilaAleatoria, pilaAuxiliar);
-        System.out.println(pilaAleatoria);
+        eliminarPalabras(entrada, pilaAleatoria, pilaAuxiliar);
+        
 
     }
 
@@ -43,10 +41,10 @@ public class App {
         return pila;
     }
 
-    public static Stack eliminarPalabras (Scanner entrada, Stack<String> pilaAleatoria, Stack<String> pilaAuxiliar){
-        System.out.println("¿Cuantas palabras desea eliminar?: ");
-        int n = entrada.nextInt();
-        entrada.nextLine();
+    public static void eliminarPalabras (Scanner entrada, Stack<String> pilaAleatoria, Stack<String> pilaAuxiliar){
+        int n1, n2;
+        n1 = pilaAleatoria.size();
+        int n = Helper.getInteger("¿Cuantas palabras desea eliminar?", "Ingrese un valor numerico valido");
 
         for (int i = 0; i < n; i++) {
             System.out.println("Ingrese la palabra a eliminar: ");
@@ -62,8 +60,9 @@ public class App {
             while(!pilaAuxiliar.empty()){
                 pilaAleatoria.push(pilaAuxiliar.pop());
             }
-
         }
-        return pilaAleatoria;
+        System.out.println(pilaAleatoria);
+        n2 = pilaAleatoria.size();
+        System.out.println("La cantidad de palabras eliminadas es de: "+(n1-n2));
     }
 }
