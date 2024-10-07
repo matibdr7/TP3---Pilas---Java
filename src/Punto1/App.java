@@ -15,7 +15,6 @@ package Punto1;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class App {
     public static void main(String[] args){
 
@@ -38,7 +37,7 @@ public class App {
 
     public static Stack pilaAleatoria(String[] palabras, Random random){
         Stack<String> pila = new Stack<>();
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             pila.push(palabras[random.nextInt(10)]);
         }
         return pila;
@@ -47,11 +46,11 @@ public class App {
     public static Stack eliminarPalabras (Scanner entrada, Stack<String> pilaAleatoria, Stack<String> pilaAuxiliar){
         System.out.println("¿Cuantas palabras desea eliminar?: ");
         int n = entrada.nextInt();
+        entrada.nextLine();
 
         for (int i = 0; i < n; i++) {
             System.out.println("Ingrese la palabra a eliminar: ");
             String palabra = entrada.nextLine();
-            entrada.next();
 
             while(!pilaAleatoria.empty()){
                 String elemento = pilaAleatoria.pop();
