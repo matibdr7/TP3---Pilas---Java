@@ -14,8 +14,12 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
+        Stack pila = new Stack<>();
+
         int num = ingresoNumero(entrada);
-        descomponerNumero(entrada, num);
+        pila = descomponerNumeroEnPila(entrada, num, pila);
+
+        
     }
 
     public static int ingresoNumero(Scanner entrada){
@@ -27,13 +31,17 @@ public class App {
         return num;
     }
 
-    public static void descomponerNumero(Scanner entrada, int num){
+    public static Stack descomponerNumeroEnPila(Scanner entrada, int num, Stack pila){
         int miles = num/1000;
         int centena = (num/100) % 10;
         int decena = (num/10) % 10;
         int unidad = (num) % 10;
-        
 
+        pila.push(unidad);
+        pila.push(decena);
+        pila.push(centena);
+        pila.push(miles);
 
+        return pila;
     }
 }
