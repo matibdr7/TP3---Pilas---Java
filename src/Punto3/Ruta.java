@@ -16,7 +16,7 @@ public class Ruta {
 
     @Override
     public String toString() {
-        return "Ruta [origen=" + origen + ", destino=" + destino + ", distancia=" + distancia + "]";
+        return "origen: " + origen + ", destino: " + destino + ", distancia: " + distancia + "\n";
     }
 
 }
