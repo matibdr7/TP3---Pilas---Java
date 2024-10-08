@@ -1,8 +1,8 @@
     package Punto3;
 
     public class GPS {
-        private Stack pilaRutas;
-        private Stack pilaDeshacer;
+        private Stack<Ruta> pilaRutas = new Stack<Ruta>();
+        private Stack<Ruta> pilaDeshacer = new Stack<Ruta>();
 
         public void agregarRuta(Ruta ruta){
             pilaRutas.push(ruta);
@@ -22,6 +22,11 @@
 
         public void verHistorialCompleto(){
             pilaRutas.toString();
+        }
+
+        @Override
+        public String toString() {
+            return "GPS Rutas: \n" + pilaRutas;
         }
 
     }
