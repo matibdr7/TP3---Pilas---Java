@@ -31,7 +31,8 @@ public class App {
             System.out.println(
                 "1- Agregar sitio web \n"+
                 "2- Recorrer historial \n"+
-                "3- Salir"
+                "3- Mostrar historial completo e informacion\n"+
+                "4- Salir"
             );
             decision = Helper.getInteger("Ingrese la opcion que desea ejecutar", "Ingrese un valor numerico valido");
 
@@ -44,6 +45,9 @@ public class App {
                     recorrerHistorial(entrada, historial);
                     break;
                 case 3:
+                    mostrarHistorial(historial);
+                    break;
+                case 4:
                     System.out.println("Saliendo . . .");
                     return;
                 default:
@@ -95,5 +99,44 @@ public class App {
         while(!pilaAux.empty()){
             historial.push(pilaAux.pop());
         }
+    }
+    
+    public static void mostrarHistorial(Stack historial){
+        System.out.println(historial);
+        System.out.println("Total de sitios web: "+(historial.size()));
+        contarTipos(historial);
+    }
+
+    public static void contarTipos(Stack historial){
+        Stack pilaAux = new Stack<>();
+        int nEducativo=0, nEntretenimiento=0, nNoticias=0, nEcommerce=0;
+
+        while(!historial.empty()){
+            SitioWeb elemento = (SitioWeb) historial.pop();
+            if (elemento.getTipo().equals("Educativo")) {
+                nEducativo+=1;
+            }else if(elemento.getTipo().equals("Entretenimiento")){
+                nEntretenimiento+=1;
+            }
+            else if(elemento.getTipo().equals("Noticias")){
+                nNoticias+=1;
+            }
+            else{
+                nEcommerce+=1;
+            }
+            pilaAux.push(elemento);
+        }
+
+        while(!pilaAux.empty()){
+            historial.push(pilaAux.pop());
+        }
+
+        System.out.println(
+        "-Educativos: "+nEducativo+"\n"+
+        "-Entretenimiento: "+nEntretenimiento+"\n"+
+        "-Noticias: "+nNoticias+"\n"+
+        "-Comercio Electronico: "+nEcommerce+"\n"
+        );
+
     }
 }
