@@ -22,7 +22,6 @@ public class App {
         Stack historial = new Stack<>();
 
         menu(entrada, historial);
-
     }
 
     public static void menu(Scanner entrada, Stack historial){
@@ -137,6 +136,5 @@ public class App {
         "-Noticias: "+nNoticias+"\n"+
         "-Comercio Electronico: "+nEcommerce+"\n"
         );
-
     }
 }
