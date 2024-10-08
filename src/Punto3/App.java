@@ -36,10 +36,10 @@ public class App {
                     agregarNuevaRuta(entrada, gps);
                     break;
                 case 2:
-                    System.out.println("2");
+                    deshacerUltimaRuta(gps);
                     break;
                 case 3:
-                    System.out.println("3");
+                    rehacerRutaDeshecha(gps);
                     break;
                 case 4:
                     System.out.println("4");
@@ -67,4 +67,20 @@ public class App {
 
         System.out.println(gps);
     }
+
+    public static void deshacerUltimaRuta(GPS gps){
+        System.out.println("Deshaciendo ultima ruta . . .");
+        gps.deshacerRuta();
+    }
+
+    public static void rehacerRutaDeshecha(GPS gps){
+        System.out.println("Rehaciendo ruta deshecha . . .");
+        gps.rehacerRuta();
+    }
+
+    
+
+
+
+
 }
