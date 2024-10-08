@@ -12,11 +12,12 @@ public class App {
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
         GPS gps = new GPS();
-        menu(entrada);
+        menu(entrada, gps);
+        System.out.println(gps);
 
     }
 
-    public static void menu(Scanner entrada){
+    public static void menu(Scanner entrada, GPS gps){
         int decision;
 
         while(true){
@@ -32,7 +33,7 @@ public class App {
 
             switch (decision) {
                 case 1:
-                    System.out.println("1");
+                    agregarNuevaRuta(entrada, gps);
                     break;
                 case 2:
                     System.out.println("2");
@@ -48,5 +49,22 @@ public class App {
                     return;
                 }
         }
+    }
+
+    public static void agregarNuevaRuta(Scanner entrada, GPS gps){
+        System.out.println("Ingrese el origen de la nueva ruta: ");
+        String origen = entrada.nextLine();
+
+        System.out.println("Ingrese el destino de la nueva ruta: ");
+        String destino = entrada.nextLine();
+
+        System.out.println("Ingrese la distancia en km: ");
+        int distancia = entrada.nextInt();
+        entrada.nextLine();
+
+        Ruta ruta = new Ruta(origen, destino, distancia);
+        gps.agregarRuta(ruta);
+
+        System.out.println(gps);
     }
 }
