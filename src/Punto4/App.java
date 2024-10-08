@@ -13,6 +13,7 @@ visitados e indicar cuantos corresponden a cada tipo.
 
 package Punto4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -36,7 +37,7 @@ public class App {
 
             switch (decision) {
                 case 1:
-                    agregarSitioWeb(entrada);
+                    agregarSitioWeb(entrada, historial);
                     break;
                 case 2:
                     recorrerHistorial();
@@ -51,8 +52,30 @@ public class App {
 
     }
 
-    public static void agregarSitioWeb(Scanner entrada){
+    public static void agregarSitioWeb(Scanner entrada, Stack historial){
+        System.out.println("Ingrese el nombre de el sitio: ");
+        String nombre = entrada.nextLine();
 
+        String tipo = validarTipo(entrada);
+
+        System.out.println("Ingrese la url del sitio: ");
+        String url = entrada.nextLine();
+
+        SitioWeb sitio = new SitioWeb(nombre, tipo, url);
+    }
+
+    public static String validarTipo(Scanner entrada) {
+        System.out.println("Ingrese el tipo de sitio web: ");
+        String tipo = entrada.nextLine();
+
+        String[] validTypes = {"Educativo", "Entretenimiento", "Noticias", "Comercio electronico"};
+
+        if (!Arrays.asList(validTypes).contains(tipo)) {
+            System.out.println("Ingrese un tipo valido");
+            return validarTipo(entrada);
+        }
+
+        return tipo;
     }
 
     public static void recorrerHistorial(){
