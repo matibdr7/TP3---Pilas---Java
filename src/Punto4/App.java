@@ -49,7 +49,6 @@ public class App {
                     System.out.println("Ingrese un valor valido del 1 al 3");
             }
         }
-
     }
 
     public static void agregarSitioWeb(Scanner entrada, Stack historial){
@@ -62,15 +61,16 @@ public class App {
         String url = entrada.nextLine();
 
         SitioWeb sitio = new SitioWeb(nombre, tipo, url);
+        historial.push(historial);
     }
 
     public static String validarTipo(Scanner entrada) {
         System.out.println("Ingrese el tipo de sitio web: ");
         String tipo = entrada.nextLine();
 
-        String[] validTypes = {"Educativo", "Entretenimiento", "Noticias", "Comercio electronico"};
+        String[] tipos = {"Educativo", "Entretenimiento", "Noticias", "Comercio electronico"};
 
-        if (!Arrays.asList(validTypes).contains(tipo)) {
+        if (!Arrays.asList(tipos).contains(tipo)) {
             System.out.println("Ingrese un tipo valido");
             return validarTipo(entrada);
         }
@@ -79,6 +79,6 @@ public class App {
     }
 
     public static void recorrerHistorial(){
-
+        
     }
 }
