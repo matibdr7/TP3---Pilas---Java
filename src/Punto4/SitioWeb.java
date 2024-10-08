@@ -38,6 +38,11 @@ public class SitioWeb {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "[nombre=" + nombre + ", tipo=" + tipo + ", url=" + url + "]\n";
+    }
+
     
 
 }
