@@ -9,19 +9,37 @@
         }
 
         public void deshacerRuta(){
-            pilaDeshacer.push(pilaRutas.pop());
+            if(!pilaRutas.empty()){
+                pilaDeshacer.push(pilaRutas.pop());
+            }else{
+                System.out.println("No hay rutas en el historial");
+            }
+
         }
 
         public void rehacerRuta(){
-            pilaRutas.push(pilaDeshacer.pop());
+            if(!pilaDeshacer.empty()){
+                pilaRutas.push(pilaDeshacer.pop());
+            }else{
+                System.out.println("No hay rutas por rehacer");
+            }
+            
         }
 
         public void verRutaActual(){
-            System.out.println(pilaRutas.peek());
+            if (!pilaRutas.empty()) {
+                System.out.println(pilaRutas.peek());                
+            }else{
+                System.out.println("No hay ninguna ruta para mostrar");
+            }
         }
 
         public void verHistorialCompleto(){
-            pilaRutas.toString();
+            if(!pilaRutas.empty()){
+                System.out.println(pilaRutas);
+            }else{
+                System.out.println("No hay nignuna ruta para mostrar");
+            }
         }
 
         @Override
