@@ -3,7 +3,7 @@ Crear un programa para el sistema de manejo de rutas en un GPS utilizando una es
 Este sistema debe permitir a los usuarios agregar nuevas rutas, deshacer la última ruta agregada, rehacer
 una ruta deshecha y visualizar la ruta actual. También debe existir la opción para ver el historial completo
 de las rutas
- */
+*/
 
 package Punto3;
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class App {
             "3- Rehacer ruta deshecha \n"+
             "4- Ver ruta actual\n"+
             "5- Ver historial completo\n"+
-            "5- Salir"
+            "6- Salir"
         );
 
             decision = Helper.getInteger("Ingrese el numero de la opcion que desea hacer: ", "Ingrese un valor valido");
@@ -47,6 +47,7 @@ public class App {
                     break;
                 case 5:
                     verHistorialCompleto(gps);
+                    break;
                 case 6:
                     System.out.println("Saliendo . . .");
                     return;
@@ -88,5 +89,4 @@ public class App {
     public static void verHistorialCompleto(GPS gps){
         gps.verHistorialCompleto();
     }
-
 }
