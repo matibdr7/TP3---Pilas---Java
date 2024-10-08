@@ -80,14 +80,19 @@ public class App {
             rehacer.push(deshacer.pop());
         }else{
             System.out.println("No hay acciones para deshacer . . .");
+            return;
         }
     }
 
     public static void rehacerAccion(Scanner entrada, Stack deshacer, Stack rehacer){
-        if(!rehacer.empty()){
-            deshacer.push(rehacer.pop());
-        }else{
-            System.out.println("No hay acciones para rehacer . . .");
+        int num = Helper.getInteger("¿Cuantas acciones desea rehacer?: ", "Ingrese un valor numerico valido");
+        
+        for (int i = 0; i < num; i++) {
+            if(!rehacer.empty()){
+                deshacer.push(rehacer.pop());
+            }else{
+                System.out.println("No hay más acciones para rehacer . . .");
+            }
         }
     }
 
