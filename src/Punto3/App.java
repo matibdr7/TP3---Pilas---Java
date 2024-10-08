@@ -26,6 +26,7 @@ public class App {
             "2- Deshacer ultima ruta \n"+
             "3- Rehacer ruta deshecha \n"+
             "4- Ver ruta actual\n"+
+            "5- Ver historial completo\n"+
             "5- Salir"
         );
 
@@ -42,9 +43,11 @@ public class App {
                     rehacerRutaDeshecha(gps);
                     break;
                 case 4:
-                    System.out.println("4");
+                    verRutaActual(gps);
                     break;
                 case 5:
+                    verHistorialCompleto(gps);
+                case 6:
                     System.out.println("Saliendo . . .");
                     return;
                 }
@@ -78,9 +81,12 @@ public class App {
         gps.rehacerRuta();
     }
 
-    
+    public static void verRutaActual(GPS gps){
+        gps.verRutaActual();
+    }
 
-
-
+    public static void verHistorialCompleto(GPS gps){
+        gps.verHistorialCompleto();
+    }
 
 }
