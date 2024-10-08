@@ -51,6 +51,7 @@ public class App {
                     deshacerAccion(entrada, deshacer, rehacer);
                     break;
                 case 3:
+                    deshacerEnGrupo(entrada, deshacer, rehacer, random);
                     break;
                 case 4:
                     rehacerAccion(entrada, deshacer, rehacer);
@@ -87,6 +88,24 @@ public class App {
             deshacer.push(rehacer.pop());
         }else{
             System.out.println("No hay acciones para rehacer . . .");
+        }
+    }
+
+    public static void deshacerEnGrupo(Scanner entrada, Stack deshacer, Stack rehacer, Random random){
+        int num = random.nextInt(deshacer.size());
+        System.out.println("Random num = "+num);
+
+        for (int i = 0; i < num; i++) {
+            deshacerAccion(entrada, deshacer, rehacer);
+        }
+    }
+
+    public static void rehacerEnGrupo(Scanner entrada, Stack deshacer, Stack rehacer, Random random){
+        int num = random.nextInt(rehacer.size());
+        System.out.println("Random num = "+num);
+
+        for (int i = 0; i < num; i++) {
+            rehacerAccion(entrada, deshacer, rehacer);
         }
     }
 }
