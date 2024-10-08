@@ -99,13 +99,4 @@ public class App {
             deshacerAccion(entrada, deshacer, rehacer);
         }
     }
-
-    public static void rehacerEnGrupo(Scanner entrada, Stack deshacer, Stack rehacer, Random random){
-        int num = random.nextInt(rehacer.size());
-        System.out.println("Random num = "+num);
-
-        for (int i = 0; i < num; i++) {
-            rehacerAccion(entrada, deshacer, rehacer);
-        }
-    }
 }
