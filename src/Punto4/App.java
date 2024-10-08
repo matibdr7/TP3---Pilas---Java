@@ -9,7 +9,7 @@ de los sitios previamente visitados (usar una pila auxiliar).
 Crear un programa que facilite el acceso a ambas operaciones. Además, mostrar el total de sitios web
 visitados e indicar cuantos corresponden a cada tipo.
 
- */
+*/
 
 package Punto4;
 
@@ -38,9 +38,10 @@ public class App {
             switch (decision) {
                 case 1:
                     agregarSitioWeb(entrada, historial);
+                    System.out.println(historial.toString());
                     break;
                 case 2:
-                    recorrerHistorial();
+                    recorrerHistorial(entrada, historial);
                     break;
                 case 3:
                     System.out.println("Saliendo . . .");
@@ -61,7 +62,7 @@ public class App {
         String url = entrada.nextLine();
 
         SitioWeb sitio = new SitioWeb(nombre, tipo, url);
-        historial.push(historial);
+        historial.push(sitio);
     }
 
     public static String validarTipo(Scanner entrada) {
@@ -74,11 +75,25 @@ public class App {
             System.out.println("Ingrese un tipo valido");
             return validarTipo(entrada);
         }
-
         return tipo;
     }
 
-    public static void recorrerHistorial(){
-        
+    public static void recorrerHistorial(Scanner entrada, Stack historial){
+        Stack pilaAux = new Stack<>();
+        System.out.println("Ingrese el nombre o url del sitio web a buscar: ");
+        String busqueda = entrada.nextLine();
+
+        while(!historial.empty()){
+            SitioWeb elemento = (SitioWeb) historial.pop();
+            if(!elemento.getNombre().equals(busqueda) && !elemento.getUrl().equals(busqueda)){
+                pilaAux.push(elemento);
+            }else{
+                System.out.println("Un sitio coincide con la busqueda: "+elemento);
+                break;
+            }
+        }
+        while(!pilaAux.empty()){
+            historial.push(pilaAux.pop());
+        }
     }
 }
