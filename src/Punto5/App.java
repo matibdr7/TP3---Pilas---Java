@@ -97,7 +97,7 @@ public class App {
     }
 
     public static void deshacerEnGrupo(Scanner entrada, Stack deshacer, Stack rehacer, Random random){
-        int num = random.nextInt(deshacer.size());
+        int num = random.nextInt(deshacer.size()) + 1;
         System.out.println("Random num = "+num);
 
         for (int i = 0; i < num; i++) {
